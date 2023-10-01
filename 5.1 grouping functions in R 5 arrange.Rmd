@@ -1,0 +1,112 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+
+
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+
+#### using arrange()for Data manipulation
+
+```text
+using arrange() we will arrange rows by variables
+      ?arrange()
+we will get the syntex of arrange() in the help tab, which will help us to understand it better.
+
+Example 1
+arrange the dataset on the basis of gender 
+```
+```{r}
+library(dplyr)
+data2<-arrange(data1, Gender)
+fix(data2)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/arrange1.png")
+```
+
+```text
+Example 2
+arrange the dataset on the basis of gender and then state
+```
+```{r}
+library(dplyr)
+data2<-arrange(data1, Gender, State)
+fix(data2)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/arrange2.png")
+```
+
+
+```text
+Example 3
+arrange the dataset on the basis of age
+```
+```{r}
+library(dplyr)
+data3<-arrange(data1, Age_in_years_completed)
+fix(data3)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/arrange3.png")
+```
+
+
+```text
+Example 4
+arrange the dataset on the basis of age in descending order
+```
+```{r}
+library(dplyr)
+data3<-arrange(data1, desc(Age_in_years_completed))
+fix(data3)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/arrange4.png")
+```
+
+
+```text
+Example 5
+Arrange the dataset on the basis of gender and then age in descending order
+```
+```{r}
+library(dplyr)
+data3<-arrange(data1, Gender, desc(Age_in_years_completed))
+fix(data3)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/arrange5.png")
+```
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for 
+Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+```

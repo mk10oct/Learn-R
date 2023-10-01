@@ -1,0 +1,161 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Data Types"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Data types in R Programming
+
+```text
+In R, there are 5 basic data types, they are:
+
+1. logical
+2. numeric
+3. integer
+4. complex
+5. character
+
+```
+#### Creation of data type in R 
+
+# Logical data type
+
+```text
+In R, the logical data type is also referred to as the boolean data type. TRUE and FALSE are the only two possible values of the logical data type. To create a logical data we will use the variable name as logical1,logical2,... and class() to identify the variable type created
+```
+# creating a logical data type
+```{r}
+logical1<-TRUE
+print(logical1)
+class(logical1)
+
+logical2<-T
+print(logical2)
+class(logical2)
+
+logical3<-FALSE
+print(logical3)
+class(logical3)
+
+logical4<-F
+print(logical4)
+class(logical4)
+```
+
+# Numeric data type
+
+```text
+The numeric data type in R represents all actual numbers, whether they have decimal values or not. The numeric data type can be floating or real number
+```
+
+# creating a Numeric data type
+
+```{r}
+Marks1<-87.5
+print(Marks1)
+class(Marks1)
+
+Marks2<-87
+print(Marks2)
+class(Marks2)
+
+```
+
+
+# Integer data type
+
+```text
+The integer data type is a specific sort of numerical data. Numeric data without decimals are known as integers. In order to define integer data, we utilize the suffix L. If you are certain that the numbers you store won't ever contain decimals, you can utilize it.
+```
+
+# Creating an Integer data type
+
+```{r}
+Marks3<-87L
+print(Marks3)
+class(Marks3)
+
+Marks4<-87.5L
+print(Marks4)
+class(Marks4)
+
+```
+
+
+# Complex data type
+
+```text
+The complex data type is a specific purely imaginary number in R. in order to define a complex number we utilize the suffix i. for example 1+i
+```
+# Creating a complex data type
+
+```{r}
+Marks6<- 1+1i
+print(Marks6)
+class(Marks6)
+
+Marks7<- 3-1i
+print(Marks7)
+class(Marks7)
+
+Marks8<-3+3i
+print(Marks8)
+class(Marks8)
+```
+
+# Character data type
+
+```text
+The data type character is used when we have to store text, known as strings in R. The simplest ways to store data under the character format is by using "" around the text
+```
+# Creating a character data type
+
+```{r}
+name1<-"Vedant"
+print(name1)
+class(name1)
+
+name2<-c("Vedant", "Khushi")
+print(name1)
+class(name2)
+
+name3<-'Vedant'
+print(name3)
+class(name3)
+
+```
+
+
+
+
+
+#### References
+
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+
+R for Data Science: 1st Editionby Hadley Wickham , Garrett Grolemund , ISBN-13: 978-1491910399 ISBN-10: 1491910399
+
+Hands-On Programming with R, Garrett Grolemund   ISBN-13: 978-1449359010,ISBN-10: 1449359019
+
+R Cookbook: Paul Teetor ISBN-13: 978-0596809157,ISBN-10: 0596809158
+
+Curran, J.M. (2010) Introduction to Data Analysis with R for Forensic Scientists, ISBN: 978-1420088267
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+Murrell, P Introduction to Data Technologies, www.stat.auckland.ac.nz/~paul/ItDT
+
+```

@@ -1,0 +1,169 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+####  Using filter() for data manipulation
+  
+```text
+filter() is used to find rows/cases where some specific conditions are true. it allows to pick cases based on their values
+```
+
+```{r}
+library(dplyr)
+```
+
+```text
+using filter for scale data
+Example 1
+Create a subset of data1 with age equals to, greater than and less than 22
+
+```
+
+```{r}
+data1_age1<-filter(data1, Age_in_years_completed==22)
+fix(data1_age1)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter0.png")
+```
+
+```{r}
+data1_age2<-filter(data1, Age_in_years_completed>22)
+fix(data1_age2)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter2.png")
+```
+
+
+```{r}
+data1_age3<-filter(data1, Age_in_years_completed<22)
+fix(data1_age3)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter3.png")
+```
+
+```text
+using filter for categorical data
+Example 2
+Create a subset of data1 with gender equals to male
+```
+
+```{r}
+data1_gender_male<-filter(data1, Gender=="Male")
+fix(data1_gender_male)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter4.png")
+```
+
+```text
+using filter for more than one variable with logical conditions
+Example 3
+Create a subset of data1 with gender equals to male and age equals to 22
+```
+
+```{r}
+data1_gender_male_22<-filter(data1, Gender=="Male" & Age_in_years_completed==22)
+fix(data1_gender_male_22)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter5.png")
+```
+
+```text
+Using filter for two categorical variable
+Example 4
+Create a subset of data1 with gender equals to male and marital status equals to married
+```
+
+```{r}
+data1_gender_male_married<-filter(data1, Gender=="Male" & Marital_status== "Married")
+fix(data1_gender_male_married)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter6.png")
+```
+
+```text
+Using filter for two categorical variable
+Example 5
+Create a subset of data1 with gender equals to male or marital status equals to married
+```
+
+```{r}
+data1_gender_male_married<-filter(data1, Gender=="Male" | Marital_status== "Married")
+fix(data1_gender_male_married)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter7.png")
+```
+
+
+```text
+Using filter for single categorical variable with multiple categories
+Example 6
+Create a subset of data1 with state equals to south zone or central zone
+```
+
+```{r}
+data1_central_south_zone<-filter(data1, State=="south zone" | State=="Central Zone")
+fix(data1_central_south_zone)
+```
+
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter8.png")
+```
+
+```text
+using filter for more than one condition for the same scale variable
+Example 7
+Create a subset of data1 with age less than 21 and age more than 25
+```
+
+```{r}
+data1_age_21_25<-filter(data1, Age_in_years_completed < 21 | Age_in_years_completed > 25 )
+fix(data1_age_21_25)
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/filter9.png")
+```
+
+
+#### References
+
+```text
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+https://dplyr.tidyverse.org/reference/select.html
+
+```

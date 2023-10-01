@@ -1,0 +1,268 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- User Defined Functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+
+```text
+A function is a set of instructions arranged together to perform a specific task. R has a large number of built-in functions and users can create their own functions.
+
+In R, a function is an object, so the R interpreter can pass control to the function, along with any arguments the function may need to perform its actions.
+
+The function then completes its work and returns control to the interpreter and any output that may have been stored in other objects.
+
+function in the base package provides the base mechanisms for defining new functions in the R language.
+The syntex of the function is as below:
+
+  function( arglist ) expr
+    return(value)
+
+where arglist	is the Empty or one or more name or name=expression terms. expr is the expression, and value is an expression.
+```
+#### Example of Functions
+
+```text
+Define the function by f and give the values of the function() creating an empty function
+```
+
+```text
+Empty Function
+```
+
+```{r}
+f <- function() {
+  }
+
+```
+
+```text
+A Function which is used to display a text message
+```
+
+```{r}
+f <- function() {
+  print("Welcome to the R Programming Course")
+}
+print(f)
+```
+
+```text
+Create a function with single argument
+```
+
+```{r}
+f <- function(n) {
+  n<-print("Welcome to the R Programming Course")
+}
+
+f(n)
+```
+
+
+```text
+Create a function with single argument, where we are adding the arguments
+```
+
+```{r}
+f <- function(n) {
+  x<-n+n  
+  print(x)
+}
+
+f(6)
+```
+
+```text
+Extending the previous function with single argument, where we are multiplying the arguments
+```
+
+```{r}
+f <- function(n) {
+  x<-n*n  
+  print(x)
+}
+
+f(6)
+```
+
+```text
+create a funtion with more than one arguments. In this function we are adding and multplying two arguments and displaying them
+```
+
+```{r}
+f <- function(m,n) {
+  x<-m*n
+  y<-m+n
+  print(x)
+  print(y)
+}
+
+f(5,6)
+```
+
+#### Using Control Functions: loops for creating a user defined functions
+
+```text
+A loop is a collection of commands that are run over and over again. "for" loop runs the code a fixed number of times, or on a fixed set of objects
+
+    Syntex of for loop
+
+    for(variable in sequence) { 
+         statements
+        }
+```
+
+```{r}
+f <- function(n) {
+  for(i in 1:n)
+  print(i)
+}
+
+f(5)
+
+f <- function(n) {
+  for(i in 1:n)
+  print("Welcome to the R Programming Course")
+}
+
+f(5)
+```
+ 
+```text
+  Create a function to find the sum of number from 1 to n
+```
+
+```{r}
+total=0
+f <- function(n) {
+  for(i in 1:n)
+  total<-total+i
+  total
+}
+
+f(5)
+```
+
+```text
+Create a function to print squares of number starting from 1 to n
+```
+
+```{r}
+f <- function(n) {
+  for(i in 1:n)
+  i<-i^2
+i
+}
+
+f(5)
+```
+
+```text
+Create a function to print squares of numbers in sequence
+```
+```{r}
+f <- function(n) {
+  for(i in 1:n){
+  i<-i^2
+print(i)
+}
+}
+
+f(5)
+```
+
+```text
+Create a function to calculate factorial of a given number
+```
+
+```{r}
+fact <- function(n)
+{
+   f = 1
+   for(i in 1:n)
+   {
+      f = f*i
+   }
+   print(f)
+   return(f)
+
+}
+fact(6)
+```
+
+```text
+Create a function to find Permutation of given numbers; this function will not work for n equals to r
+```
+```{r}
+Permutation <- function(n,r)
+{
+   if(n>r){
+   f1=1
+   for(i in 1:n) {f1=f1*i}
+   f2=1
+   for(i in 1:r){f2=f2*i}
+   f3=1
+   for(i in 1:(n-r)){f3=f3*i}
+   print(f1)
+   print(f2)
+   print(f3)
+   print(f1/(f2*f3))
+   
+   }
+    else
+    {
+     print("Error")
+    }
+}
+
+Permutation(3,3)
+
+```
+
+```text
+Creating a function for permutation calling a user defined function in it
+```
+
+```{r}
+factorial <- function(n)
+{
+f = 1
+for(i in 1:n)
+{
+    f = f*i
+}
+ return(f)
+}
+
+factorial(6)
+
+permutation1<-function(n,r)
+
+{
+if(n>r)
+{print(factorial(n)/factorial(n-r))} 
+  else if(n==r)
+  {
+  print(factorial(n))
+  }
+  else{print("Error")}
+}
+
+permutation1(5,5)
+```
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+```

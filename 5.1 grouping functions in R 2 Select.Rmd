@@ -1,0 +1,189 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+#### using select()for Data manipulation
+
+```text
+select() is used to picks variables based on their names from the data set
+
+Example 1
+Create a subset of the dataset 1 with only one variable say Age
+```
+
+```{r}
+library(dplyr)
+data1_age<-select(data1, Age_in_years_completed)
+str(data1_age)
+
+```
+
+```text
+Example 2
+Create a subset of the dataset 1 with tw0 variable say percenatge 10 and percentage 12
+```
+
+```{r}
+data1_per1<-select(data1, Percentage_in_10_Class, Percentage_in_12_Class)
+str(data1_per1)
+
+```
+
+```text
+Example 3
+Create a subset of the dataset 3 with variable on the basic of their position 3,4, and 5 variable
+```
+
+```{r}
+data1_per2<-select(data1, c(3,4,5))
+str(data1_per2)
+
+data1_per2<-select(data1, c(3:5))
+str(data1_per2)
+```
+
+```text
+Example 4
+Create a subset of the dataset with variable starting with per
+```
+
+```{r}
+
+data1_per3<-select(data1, starts_with("per"))
+str(data1_per3)
+
+```
+
+```text
+Example 5
+Create a subset of the dataset with variable which dont starting with per
+```
+
+```{r}
+data1_per4<-select(data1, -starts_with("per"))
+str(data1_per4)
+```
+
+
+```text
+Example 6
+Create a subset of the dataset with variable which ends with qualification
+```
+
+```{r}
+data1_per5<-select(data1, ends_with("qualification"))
+str(data1_per5)
+```
+
+```text
+Example 7
+Create a subset of the dataset with variable which contain qualification
+```
+
+```{r}
+data1_per6<-select(data1, contains("qualification"))
+str(data1_per6)
+```
+
+
+```text
+We have matches() which is use to select a variable which is matching some spcific string
+
+Example 8
+Create a subset of the dataset for variables which matches "class"
+```
+
+```{r}
+data_class1<-select(data1, matches("class"))
+str(data_class1)
+```
+
+```text
+We have where(), this function is used to select thse variales whchich returns a true or false value
+
+Example 9
+Create a subset of the dataset for all variables which are numeric
+```
+
+```{r}
+data_numeric<-select(data1, where(is.numeric))
+str(data_numeric)
+```
+
+```text
+Example 10
+Create a subset of the dataset for all variables which are factor
+```
+
+```{r}
+data_factor<-select(data1, where(is.factor))
+str(data_factor)
+```
+
+
+```text
+More then one condition can also be applied for creating subset
+
+Example 11
+Create a subset of the dataset for all variables which are numeric and contains percentage
+```
+
+```{r}
+data_numericper<-select(data1, where(is.numeric) & contains("percentage"))
+str(data_numericper)
+```
+
+```text
+More then one condition can also be applied for creating subset
+
+Example 12
+Create a subset of the dataset for all variables which are factor and contains qualification
+```
+
+```{r}
+data_factorqual<-select(data1, where(is.factor) & contains("qualification"))
+str(data_factorqual)
+```
+
+
+```text
+Similary we can use select for removing variables from the data set
+
+Example 13
+Create a subset of the dataset removing variables which has qualification in its name
+```
+
+```{r}
+data1<-select(data1, -contains("qualification"))
+str(data1)
+```
+
+
+#### References
+
+```text
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+https://dplyr.tidyverse.org/reference/select.html
+
+```

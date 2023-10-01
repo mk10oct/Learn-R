@@ -1,0 +1,194 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Viewing the dataset"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Import data set in R Environment
+
+```text
+In this section we will be using a very small part of the Big Mart dataset to learn how to view the dataset imported in R environment. The dataset location is 
+
+          C:/Users/User/Documents/dataset/Big Mart Dataset Small.csv
+Since the dataset which is entered in the data set has many string variables they are convereted to character. In order to convert them into factor, we can use stringsAsFactors = TRUE. 
+
+The first thing which we can use is str(), to understand the structure of the R object. 
+```
+
+```{r}
+data1<-read.csv("C:/Users/User/Documents/dataset/Big Mart Dataset Small.csv", stringsAsFactors = TRUE)
+str(data1)
+```
+
+```text
+To Know the dimensions of an object, dim(object)is used 
+```
+
+```{r}
+dim(data1)
+```
+
+```text
+class of an object (numeric, matrix, data frame, etc)can be identified using class(), we can also use typeof()
+```
+```{r}
+class(data1)
+
+typeof(data1)
+```
+
+```text
+IN order to understand the R object in a better way we can also use names() to know the names of the variables in the data set.
+```
+```{r}
+names(data1)
+```
+
+
+```text
+In order to check the whole r object, in this case the data set. we will use print() or we can directly use the R object data1 it self. we can also use fix() to check the R object created just like a excel sheet, which can be edited also.
+```
+
+```{r}
+data1
+
+print(data1)
+
+fix(data1)
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "75%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/fix1.png")
+```
+
+```text
+Further more we will use nrow() to find the number of rows in the data set and ncol() to find the number for columns in the data set. 
+
+```
+```{r}
+nrow(data1)
+ncol(data1)
+```
+
+```text
+In the similar way we will use length(), head() and tail() for viewing the data set. 
+
+```
+```{r}
+length(data1) 
+```
+
+```text
+Gives the number of variables in the R object
+```
+
+```{r}
+length(data1$Item_Identifier) 
+```
+
+```text
+gives the length of the variable item_identifier in of the dataset data1
+```
+
+```text
+Using head() and tail() to view the top 6 rows of the data set with all the variables,similary tail is also used for bottom 6 rows of teh data set with all teh variables 
+```
+
+```{r}
+head(data1)
+head(data1, n=4)
+head(data1, 4)
+head(data1, 10)
+
+
+tail(data1)
+tail(data1, 4)
+tail(data1, 10)
+
+```
+
+```text
+Use fo [] for viewing dataset is one of the best option, data1[rows,columns]
+```
+
+```{r}
+data1[]
+data1[,]
+```
+# whole dataset
+```{r}
+data1[1,]
+```
+
+```text
+only first row with all the variables
+```
+```{r}
+data1[1:5,]
+```
+
+```text
+first to fifth row with all the variables
+```
+```{r}
+data1[1:5,1]
+```
+
+```text
+first to fifth row with only first variable
+```
+
+```{r}
+data1[1:5,c(1,5)]
+```
+
+```text
+first to fifth row with first and fifth variable
+```
+
+```{r}
+data1[1:5,c(1:5)]
+```
+
+```text
+first to fifth row with first to fifth variable
+```
+
+
+```{r}
+data1[2,5]
+```
+
+```text
+it gives 2nd row and 5th column values; its gives the value of 5th variable for 2nd respondent
+```
+
+```{r}
+data1[2,5]
+```
+
+```text
+Similary we can use [] for variables of the dataset also
+```
+```{r}
+data1$Item_Weight
+data1$Item_Weight[]
+```
+
+
+#### References
+
+
+```text
+-Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+-R for Data Science: 1st Editionby Hadley Wickham , Garrett Grolemund , ISBN-13: 978-1491910399 ISBN-10: 1491910399
+-Hands-On Programming with R, Garrett Grolemund   ISBN-13: 978-1449359010,ISBN-10: 1449359019
+-https://www.kaggle.com/datasets/brijbhushannanda1979/bigmart-sales-data?select=Train.csv
+```

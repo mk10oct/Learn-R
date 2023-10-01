@@ -1,0 +1,214 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Graphs, Charts and Table using R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+##### Visualization Using ggplot2 package
+
+```text
+In this session we will be using ggplot for visualization. Though there are many packages for visualization. ggplot2 is one of the better package. The data set to be used for the same will be MBA Dataset.
+```
+#### Importing a data set in the R environment
+
+```text
+Import the data set MBA final in the R environment and convert all the string variables into factor. 
+```
+
+```{r}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+str(data1)
+```
+```text
+The dataste consists of 18 variables, 13 categorical and 5 scale variables. Using the dataset we will be working on the data set to explore the data as well as to understand the explore the dataset.
+```
+##### Package ggplot2
+
+```text
+ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
+
+The code for ggplot is 
+
+ggplot(data = NULL, mapping = aes(), ..., environment = parent.frame())
+
+  - data:- data set to be used for cretaing graphs.
+  - aesthetic mappings:- aesthetic means “something you can see”. Each aesthetic is a mapping between a visual cue and a variable. Examples include:
+      position (i.e., on the x and y axes)
+      color (“outside” color)
+      fill (“inside” color)
+      shape (of points)
+      line type
+      size
+  
+  - geometric objects:- A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a geom_function.
+```
+
+```text
+In order to get help on the ggplot2 we will use the help command in R 
+```
+```{r}
+library(ggplot2)
+?ggplot()
+```
+
+<a herf="">
+https://cran.r-project.org/web/packages/ggplot2/index.html
+</a>
+
+##### Creating a plot for a single scale variable
+```text
+Letus start with creating simple graphs, on the basis of type of variables.
+
+Example:
+Create a graphs for percentage in 10th class which is a scale variable.
+```
+```{r}
+ggplot(data = data1, aes(x=Percentage_in_10_Class))+geom_dotplot()
+
+ggplot(data = data1, aes(x=Percentage_in_10_Class))+geom_histogram()
+
+ggplot(data = data1, aes(x=Percentage_in_10_Class))+geom_density()
+
+ggplot(data = data1, aes(x=Percentage_in_10_Class))+geom_freqpoly()
+```
+
+
+
+```text
+These are the four important graphs which can be used when we are exploring single scale variable.
+similar graphs can be created for 12 class percentage, UG percentage and so on.
+```
+
+##### Creating a plot for a two scale variable
+
+```text
+
+Example:
+Create a graphs for comparing percentage in 10th class with percentage in 12th class, which are scale variable.
+```
+
+```{r}
+ggplot(data = data1, aes(x= Percentage_in_10_Class, y=Percentage_in_12_Class))+geom_point()
+
+ggplot(data = data1, aes(x= Percentage_in_10_Class, y=Percentage_in_12_Class))+geom_jitter()
+
+ggplot(data = data1, aes(x= Percentage_in_10_Class, y=Percentage_in_12_Class))+geom_smooth()
+```
+
+```text
+Using geom_smooth() we fit a linear model to the graph and check whether for linearity. Using the similar codes we will be able to compare two scale variables. such as 10 with UG percentage; 12 with UG percentage and so on.
+```
+
+##### Creating a plot for a single categorical variable
+
+```text
+Example:
+Create a graph for gender, which is a categorical variable.
+```
+
+```{r}
+ggplot(data = data1, aes(x= Gender))+geom_bar()
+```
+
+```text
+Example:
+Create a graph for state, which is a categorical variable.
+```
+
+```{r}
+ggplot(data = data1, aes(x= State))+geom_bar()
+```
+
+##### Creating a plot for a two categorical variable
+
+```text
+Example:
+Create a graph for gender and state, which are categorical variable.
+For adding the second variable in the bar plot, we will use the second variable as fill
+```
+
+```{r}
+ggplot(data = data1, aes(x= Gender, fill= State))+geom_bar()
+```
+```text
+There are more options for creating a bar graph when two categorical variables are involved. By changing the position to dodge, stake and fill 
+```
+
+```{r}
+ggplot(data = data1, aes(x= Gender, fill= State))+geom_bar(position = "stack")
+ggplot(data = data1, aes(x= Gender, fill= State))+geom_bar(position = "dodge")
+ggplot(data = data1, aes(x= Gender, fill= State))+geom_bar(position = "fill")
+```
+
+```text
+Changing the variable we will get a different graph where we will be comparing state with respect to gender
+```
+
+```{r}
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar(position = "stack")
+# creates a comparative graph
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar(position = "dodge")
+# creates a group side by side bar graph
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar(position = "fill")
+# Creates a proportion graph
+```
+
+#### Creating a bar graph with more than two categorical variables
+
+```text
+In order to add more variable in the bar graph we can use facet, there are three facets which are facet_grid, facet_null, and facet_wrap. 
+
+using facet_grid()  or facet_wrap() add a variable with ~ say previous degree
+```
+```{r}
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(~Previous_Degree)
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_wrap(~Previous_Degree)
+```
+
+```text
+Using the same facet we can more categorical variables into it say marital status
+uisng + sign we will be adding the categorical variable in facet grid.
+```
+
+```{r}
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(~Previous_Degree+Marital_status)
+```
+
+```text
+By changing the ~ and + sign we can get a different layout for the same variable combination
+```
+
+```{r}
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(Previous_Degree~Marital_status)
+
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(Marital_status~Previous_Degree)
+```
+
+```text
+Using the same approach, more and more categorical variables can be added using facet option
+```
+```{r}
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(Marital_status~Previous_Degree+data1$Place_you_belong_to)
+
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(Place_you_belong_to+Marital_status~Previous_Degree)
+
+ggplot(data = data1, aes(x= State, fill= Gender))+geom_bar()+facet_grid(~Place_you_belong_to+Marital_status+Previous_Degree)
+```
+
+
+#### References
+
+```text
+https://ggplot2.tidyverse.org/
+
+https://beanumber.github.io/sds192/lab-ggplot2.html#Why_ggplot2
+
+```
+

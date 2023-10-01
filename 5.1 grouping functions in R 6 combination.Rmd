@@ -1,0 +1,64 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+#### using combination of mutate(), select(), filter() or summarise()and %>%  pipe function for Data manipulation
+
+```text
+Create a dataset with only age as a variable equal to 22
+Example1: 
+```
+
+```{r}
+library(dplyr)
+data1_age<-select(data1, Age_in_years_completed)
+filter(data1_age, Age_in_years_completed==22)
+
+# using %>% 
+
+select(data1, Age_in_years_completed)%>%
+filter(Age_in_years_completed==22)
+
+# other method
+data1_age<-filter(select(data1, Age_in_years_completed),Age_in_years_completed==22)
+```
+
+```text
+Example 2
+```
+```{r}
+```
+
+```{r}
+```
+
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for 
+Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+```

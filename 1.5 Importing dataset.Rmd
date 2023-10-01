@@ -1,0 +1,134 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Import Dataset"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Import data set in R Environment
+
+```text
+Since the basic operation of R is data analysis, inorder to work on Data, data has to be entered into R. To enter R into R environment we can either create the data set manually or import the data set available in excel, sas, etc in R environment.
+
+Importing the data set into R can be done by many ways. One of the easy way of importing the dataset is using the import dataset option in the environment tab in Rstudio. Import dataset give us the option of importing excel, csv, sas,and stata files in R environment
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "80%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/import1.png")
+```
+
+```text 
+we will be using big mart data set for this course, which had been downlaoded from Kaggle. To import Excel files we will use readxl package. The location of the data set in the system is very important. The dataset location is 
+
+        C:/Users/User/Documents/dataset/Big Mart Dataset.xls
+In this data set there are three sheets which are replica of the same dataset, with few changes.The first line of the dataset is the name of the variables.
+```
+
+```{r}
+library(readxl)
+data1<-read_xls("C:/Users/User/Documents/dataset/Big Mart Dataset.xls", sheet = 1)
+str(data1)
+```
+
+```text 
+This code will be used to import the first sheet of the dataset. In order to import second sheet we will add sheet = 2
+```
+
+```{r}
+library(readxl)
+data1<-read_xls("C:/Users/User/Documents/dataset/Big Mart Dataset.xls", sheet = 2)
+str(data1)
+```
+
+
+```text
+If we use sheet= 3, there will be problem in importing the file, since the first line is informaiton about teh file and not a valid variable names. Inorder to skip these initial lines we will be using skip option
+```
+
+```{r}
+library(readxl)
+data1<-read_xls("C:/Users/User/Documents/dataset/Big Mart Dataset.xls", sheet = 3)
+str(data1)
+```
+
+```{r}
+library(readxl)
+data1<-read_xls("C:/Users/User/Documents/dataset/Big Mart Dataset.xls", sheet = 3, skip = 2)
+str(data1)
+```
+
+```text
+In order to import excel in the file location we can use single forward slach / or we can also use double backward slach \\.
+
+data1<-read_xls("C:/Users/User/Documents/dataset/Big Mart Dataset.xls")
+data1<-read_xls("C:\\Users\\User\\Documents\\dataset\\Big Mart Dataset.xls")
+```
+
+#### Import csv files
+
+```text
+It is very easy and common to use CSV files for data storage. In order to import data in csv format we will be using read.csv() code.
+```
+
+```{r}
+data1<-read.csv("C:/Users/User/Documents/dataset/Big Mart Dataset.csv")
+str(data1)
+```
+
+```text
+Since the dataset which is entered in the data set has many string variables they are convereted to character. In order to convert them into factor, we can use stringsAsFactors = TRUE
+```
+```{r}
+data1<-read.csv("C:/Users/User/Documents/dataset/Big Mart Dataset.csv",stringsAsFactors = TRUE)
+str(data1)
+```
+
+```text
+While importing data in csv we can also use the skip option for skipping the initial line of the dataset. we can also use the option read.csv(choose.files()). This option is just like the browse option in windows. As soon as we run the option we get a new pop up windows from where we can select the csv file which we have to import and run.
+```
+```{r, fig.align='right', echo=FALSE, out.width = "75%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/choose1.png")
+```
+
+#### Importing text files
+
+```text
+In order to import a datset of txt format we will be using the read.table(). The data set in data1.txt has 5 variables seperated by tab and first line as variables name.
+```
+```{r, fig.align='right', echo=FALSE, out.width = "75%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/datatxt1.png")
+```
+
+```{r}
+data1 <- read.table("C:/Users/User/Documents/dataset/dataset1.txt", header=TRUE, sep="\t")
+str(data1)
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "75%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/datatxt2.png")
+```
+
+```{r}
+data1 <- read.table("C:/Users/User/Documents/dataset/dataset2.txt", header=TRUE, sep=",")
+str(data1)
+```
+
+```text
+In order to import csv, xls, xlsx, txt,.. read.table() can also be used. choose.files() in read.table() for importing differnt formats data.
+```
+
+#### References
+
+
+```text
+-Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+-R for Data Science: 1st Editionby Hadley Wickham , Garrett Grolemund , ISBN-13: 978-1491910399 ISBN-10: 1491910399
+-Hands-On Programming with R, Garrett Grolemund   ISBN-13: 978-1449359010,ISBN-10: 1449359019
+-https://www.kaggle.com/datasets/brijbhushannanda1979/bigmart-sales-data?select=Train.csv
+```

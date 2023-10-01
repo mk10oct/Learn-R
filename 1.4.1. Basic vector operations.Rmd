@@ -1,0 +1,94 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Basic vector operations"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Basic Vector operations
+
+```text
+we can use R as Calculator, where we can perform simple operations on numbers directly or by creating r object or vector. Addition, Subtraction, Multiplication, and Division
+```
+```{r}
+2+3
+2-3
+2*3
+2/3
+2+9+8+8
+5-9+7*8
+```
+
+```text 
+similary square, square-root, power, exponential and so on can also be calculated directly
+```
+
+```{r}
+sqrt(25)
+5^2
+exp(2)
+log(2,10)
+log(2, exp(1))
+log10(2)
+```
+
+```text
+Instead of numbers we can store the values in the form of r object as variable and then can use them also
+```
+```{r}
+x<-5
+y<-10
+
+x1<-c(1,2,3,4,5)
+y1<-c(10,25,36,47,51)
+x+y
+x*y
+x-y
+x/y
+x^y
+exp(x)
+exp(-y)
+log(x)
+log10(y)
+
+x1+y1
+x1*y1
+x1-y1
+x1/y1
+x1^y1
+exp(x1)
+exp(-y1)
+log(x1)
+log10(y1)
+```
+
+
+#### References
+
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+
+R for Data Science: 1st Editionby Hadley Wickham , Garrett Grolemund , ISBN-13: 978-1491910399 ISBN-10: 1491910399
+
+Hands-On Programming with R, Garrett Grolemund   ISBN-13: 978-1449359010,ISBN-10: 1449359019
+
+R Cookbook: Paul Teetor ISBN-13: 978-0596809157,ISBN-10: 0596809158
+
+Curran, J.M. (2010) Introduction to Data Analysis with R for Forensic Scientists, ISBN: 978-1420088267
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+Murrell, P Introduction to Data Technologies, www.stat.auckland.ac.nz/~paul/ItDT
+
+```

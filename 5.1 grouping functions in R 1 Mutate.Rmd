@@ -1,0 +1,166 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Data Transformation and Manipulating
+
+```text
+Today's businesses are changing because of data. Everything depends on data, including daily operations and business decisions. And none of this is feasible without first converting raw data into useful information that is usable, especially when there is a lot of data and information coming from many sources.
+
+Data manipulation refers to the process of adjusting data to make it organised and easier to read. Using the Package "dplyr" we can adjusts data by inserting, deleting and modifying data and variables in a database such as to be used in a required way.
+
+The basic operations which we will be studying are 
+
+  mutate() 
+  Which adds new variables that are functions of existing variables
+  
+  select() 
+  picks variables based on their names
+  
+  filter() 
+  picks cases based on their values
+  
+  summarise() 
+  reduces multiple values down to a single summary
+  
+  arrange() 
+  changes the ordering of the rows
+```
+#### using mutate()for Data manipulation
+```text
+Before staring with basic operations on the data using dplyr package we will import a data set. forthe same we will be using a data set MBAdata. The data set consists of 18 variables and 273 cases. The variables of the daat set are 
+SNO, Age in years completed,	Percentage in 10 Class,	Percentage in 12 Class,	Percentage in Under Graduate,	Gender,	State,	Previous Degree,	Fathers qualification,	Mothers qualification,	Fathers occupation,	Mothers occupation,	Marital status,	Place you belong to,	Total Family Income per annum,	Funding for the MBA Program,	Work Experience,	and Career options after MBA.
+```
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+#### Understanding the data set
+
+```text
+In order to understand the data set we will be using str(), dim(), view() and summary(). These codes will help to understand the data set in a better way.
+```
+
+```{r}
+str(data1)
+dim(data1)
+```
+
+```text
+From str() it is cleer that the data set has 5 scale variables which include SNO, Age, percenatge in 10; 12; and UG. and 13 categorical variables. 
+```
+
+```{r}
+summary(data1)
+```
+
+```text
+From summary(data1), we will be able to get basic descriptive statistic, which will help us to understand the data at the initial level. 
+```
+#### manupulaing the data using dplyr 
+#### mutate()
+
+```text
+using mutate() we will create new new variables that are functions of existing variables
+using the code
+      ?mutate()
+we will get the syntex of mutate() in the help tab, which will help us to understand it better.
+
+Example 1:
+I want to add a constant value 100 to the variable percentage 10 and store it in the same dataset.
+```
+```{r}
+library(dplyr)
+data1<-mutate(data1, Percentage_in_10_Class=Percentage_in_10_Class+100)
+str(data1)
+
+```
+
+```text
+Example 2:
+I want to add a constant value 100 to the variable percentage 10 and store it in a as a new variable (percentage_10_2 ) in the same data set
+```
+
+```{r}
+data1<-mutate(data1, Percentage_in_10_Class2=Percentage_in_10_Class+100)
+str(data1)
+
+```
+
+```text
+Example 3
+If required we can store it as a different dataset say (data2).
+```
+
+```{r}
+data2<-mutate(data1, Percentage_in_10_Class2=Percentage_in_10_Class+100)
+str(data2)
+```
+
+```text
+Example 4
+we can create more than one variable at the same time, for example i want to create two variables X and Y, where X is two times of age and Y is four times of age
+```
+
+```{r}
+data1<-mutate(data1,X= Age_in_years_completed*2,Y= Age_in_years_completed*4 )
+str(data1)
+```
+
+```text
+
+we can create a variable using more than one variable form the data set itself.
+
+Example 5
+we want to create a variable which is average percentage of 10, 12 and UG percentage of the students
+```
+
+```{r}
+data1<-mutate(data1,average=(Percentage_in_10_Class+ Percentage_in_12_Class + Percentage_in_Under_Graduate)/3 )
+str(data1)
+```
+
+
+```text
+we can create a variable using more than one variable from the data set itself.
+
+Example 6
+we want to convert age into standard age using Z=(x-mean)/sd
+```
+
+```{r}
+data1<-mutate(data1, percentageageZ= (Age_in_years_completed-mean(Age_in_years_completed))/sd(Age_in_years_completed))
+
+str(data1)
+```
+
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for 
+Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Curran, J.M. (2010) Introduction to Data Analysis with R for Forensic Scientists, ISBN: 978-1420088267
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+```

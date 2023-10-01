@@ -1,0 +1,141 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Grouping functions in R"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Import the data set in the R Environment
+
+```text
+Using the read.csv() code we are importing the data set in the R environment. The code stringAsFactors= TRUE is used so that we can convert string variables to factor. 
+```
+```{R}
+data1<-read.csv("C:\\Users\\User\\Documents\\dataset\\MBA data.csv", stringsAsFactors = TRUE)
+```
+
+#### using summarise()for Data manipulation
+
+```text
+using summarise we will be able to reduces multiple values down to a single summary
+
+using the code
+      ?summarise()
+we will get the syntex of summarise() in the help tab, which will help us to understand it better.
+
+in summarize we can use following functions:
+  -Basic:-	mean(), median(),sum()
+  -variation:-		sd(),IQR()
+  -Range:-		min(),max(), quantile()
+  -Position:-		first(),	last(), nth()	
+` -Count:-	n(), n_distinct()	
+```
+```{r}
+library(dplyr)
+```
+
+```text
+Example 1
+Find the mean age from the dataset
+```
+
+```{r}
+summarize(data1, mean(Age_in_years_completed))
+```
+
+```text
+Example 2
+Find the median age from the dataset
+```
+
+```{r}
+summarize(data1,median(Age_in_years_completed))
+```
+
+```text
+Example 3
+Find the mean and median age from the dataset
+```
+
+```{r}
+summarize(data1,median(Age_in_years_completed), mean(Age_in_years_completed))
+
+summarize(data1,median=median(Age_in_years_completed), mean=mean(Age_in_years_completed))
+```
+
+```text
+Example 4
+Find the mean, median, sd, iqr, min, max, quantile,and count for age from the dataset
+```
+
+```{r}
+summarize(data1,
+          mean= mean(Age_in_years_completed),
+          median= median(Age_in_years_completed),
+          standard_deviation=sd(Age_in_years_completed),
+          minimum=min(Age_in_years_completed),
+          maximum=max(Age_in_years_completed),
+          count= n()
+          )
+```
+
+#### Using group_by() with summarize
+
+```text
+Example 5
+find mean age for gender seperately using summarize
+```
+
+```{r}
+# create a group1 using group_by() and then use the group1 as the data set and find mean using summarize() and mean()
+
+group1<-group_by(data1, Gender)
+summarise(group1, mean(Age_in_years_completed))
+```
+
+```text
+Example 6
+find mean age, percentage 10, and percentage 12 for gender seperately using summarize
+```
+
+```{r}
+group1<-group_by(data1, Gender)
+
+summarise(group1, mean_age=mean(Age_in_years_completed),
+          mean_per_10=mean(Percentage_in_10_Class),
+          mean_per_12=mean(Percentage_in_12_Class)
+          )
+```
+
+```text
+Example 7
+find mean age, percentage 10, and percentage 12 for gender and state seperately using summarize
+```
+
+```{r}
+group2<-group_by(data1,Gender, State)
+
+summarise(group2, mean_age=mean(Age_in_years_completed),
+          mean_per_10=mean(Percentage_in_10_Class),
+          mean_per_12=mean(Percentage_in_12_Class)
+          )
+```
+
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for 
+Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+```

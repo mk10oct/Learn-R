@@ -1,0 +1,303 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Creating List, Vector, Dataframe, Matrix"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Creating List, Vector, Dataframe, Matrix
+
+```text
+Vector is a basic data structure in R. It contains element of the same type. The data types can be logical, integer, double, character, complex or raw
+
+      Case 1: create a data set of five students, creating record of same type of vector start with single observation, say only a single student adn then for more students
+```
+
+```{r}
+
+Roll_Number<-1
+print(Roll_Number)
+class(Roll_Number)
+
+Per_10<-85
+print(Per_10)
+class(Per_10)
+
+Per_12<-71
+class(Per_12)
+
+Name1<-"Vedant"
+print(Name1)
+class(Name1)
+
+```
+
+```text
+Extending these vectors containing single character to multiple item of same type
+```
+
+```{r}
+Roll_Number<-c(1,2,3,4,5)
+print(Roll_Number)
+class(Roll_Number)
+
+Per_10<-c(85,96,67,78,78)
+print(Per_10)
+class(Per_10)
+
+Per_12<-c(71,56,78,98,56)
+class(Per_12)
+
+Name1<-c("vedant", "khushi", "om", "shree", "vansh")
+print(Name1)
+class(Name1)
+
+```
+
+
+##### creating vector of different types of data
+
+```text 
+Based on order of precedence being character, complex, numeric, integer, and logical, the vectors are converted,if contains more than one type of data
+```
+
+```{r}
+x1<-c(1L,"vijay", TRUE, 2+2i, 1.5)
+print(x1)
+class(x1)
+
+x2<-c(1L, TRUE, 2+2i, 1.5)
+print(x2)
+class(x2)
+
+x3<-c(1L, TRUE, 1.5)
+print(x3)
+class(x3)
+
+x4<-c(1L, TRUE)
+print(x4)
+class(x4)
+
+x5<-c(TRUE)
+print(x5)
+class(x5)
+```
+
+```text
+Here we can see that most of the vectors are convert to a vector of one type, based on the order of precedance, but of one type
+```
+
+
+#### Combining different types of vector as a single R object
+
+```text
+To combine different types of vectors we can use cbind or rbind, where cbind() combines the vector column wise and 
+rbind() binds the vector row wise
+
+  combining the vectors Roll_Number, per_10,per_12
+```
+
+```{r}
+mba_a<-cbind(Roll_Number, Per_10,Per_12)
+```
+
+```text
+To check the struture of the R object form we can use str(). Similarly we can also use fix(), which gives a data editor. Using view() in R we can invoke a spreadsheet-style data viewer within RStudio.
+```
+```{r}
+mba_a
+str(mba_a)
+fix(mba_a)
+View(mba_a)
+print(mba_a)
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/view1.png")
+```
+
+
+```text
+Simalarly we can use rbind()for combining same vectors row wise
+```
+
+```{r}
+mba_ar<-rbind(Roll_Number, Per_10,Per_12)
+
+mba_ar
+str(mba_ar)
+fix(mba_ar)
+View(mba_ar)
+print(mba_ar)
+
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/view2.png")
+```
+
+
+
+#### combining vectors of differnt length useing rbind() and cbind()
+
+
+```{r}
+
+Roll_Number2<-c(1,2,3,4,5, 6,7,8,9)
+mba_d<-cbind(Roll_Number2, Per_10,Per_12)
+str(mba_d)
+```
+
+```text
+vectors of different length can not be combined together
+```
+#### combining vectors of differnt type useing rbind() and cbind()
+```
+```{r}
+mba_b<-cbind(Name1, Roll_Number, Per_10,Per_12)
+mba_br<-rbind(Name1,Roll_Number, Per_10,Per_12)
+str(mba_b)
+str(mba_br)
+```
+
+```text
+If we check the structure of R object mba_b or mba_br, we will see that all the values in the object are converted to string because name1 is a string and all the data are converted to lower level as per precedence order of vectors. To combine differnt type of vector we can use List() or data.frame()
+```
+
+#### Creation of Dataframe
+
+```text
+
+A data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column. The dataframe can a combination of numeric, factor or character type vector
+ 
+ Important points to remember while creating dataframe
+    1. The column names should be non-empty
+    2. The row names should be unique.
+    3. Each column should contain same number of data items.
+```
+
+```{r}
+dataframe1<-data.frame(1,2,3.5,5L, 1+1i, "Vedant")
+str(dataframe1)
+print(dataframe1)
+
+dataframe2<-data.frame(Name1, Roll_Number, Per_10,Per_12)
+str(dataframe2)
+print(dataframe2)
+
+# dataframe3<-data.frame(Name1, Roll_Number2, Per_10,Per_12)
+# str(dataframe3)
+# print(dataframe3)
+```
+
+```text
+Note:- The dataframe3 will not be created since the vectors are of unequal length
+```
+
+#### Creating List
+
+```text
+Lists are the R objects which contain elements of different types like ??? numbers, strings, vectors and another list inside it. A list can also contain a matrix or a function as its elements
+```
+```{r}
+
+list1<-list(1,2,3.5,5L, 1+1i, "Vedant")
+str(list1)
+print(list1)
+
+list2<-list(Name1, Roll_Number, Per_10,Per_12)
+str(list2)
+print(list2)
+
+list3<-list(Name1, Roll_Number2, Per_10,Per_12)
+str(list3)
+print(list3)
+```
+
+#### Creating Matrix
+
+```text
+To create a matrix, we will check the syntex of matrix using ?matrix(), we will get the codes and help for the matrix. The codes are 
+
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+    where nrow is number of rows, ncol is number of rows and by rows is how the data is being taken in the matrix, if byrow is true, matrix is filled column wise
+```
+
+```{r}
+matrix1<-matrix(1, nrow = 1, ncol = 1,byrow = TRUE)
+str(matrix1)
+length(matrix1)
+dim(matrix1)
+matrix1
+
+matrix2<-matrix(c(1,1), nrow = 1, ncol = 2,byrow = TRUE)
+str(matrix2)
+length(matrix2)
+dim(matrix2)
+matrix2
+
+matrix3<-matrix(c(1,2,3), nrow = 3, ncol = 1, byrow = TRUE) # Column str(matrix3)
+length(matrix3)
+dim(matrix3)
+matrix3
+
+```
+
+
+```text 
+To label the matrix row and col, we will use dimnames and list. Before we label the rows and columns of a matrix check the number of rows and col. The labels assigned should also be equal to the number of rows and col of the Matrix. Also the elements of the matrix should be of same type
+```
+```{r}
+matrix4<-matrix(c(1,1), nrow = 1, ncol = 2,byrow = TRUE, dimnames = list(c("a"),c("x", "y")))
+
+str(matrix4)
+length(matrix4)
+dim(matrix4)
+matrix4
+
+matrix5<-matrix(c(1,2,3,4,5,6,7,8,9), nrow = 3, ncol = 3,byrow = TRUE, dimnames = list(c("a", "b","c"),c("x", "y", "z")))
+
+str(matrix5)
+length(matrix5)
+dim(matrix5)
+matrix5
+
+matrix6<-matrix(c(1,2,3,4,5,6,7,8,"9"), nrow = 3, ncol = 3,byrow = TRUE, dimnames = list(c("a", "b","c"),c("x", "y", "z")))
+
+str(matrix6)
+length(matrix6)
+dim(matrix6)
+matrix6
+
+
+```
+
+
+#### References
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+
+R for Data Science: 1st Editionby Hadley Wickham , Garrett Grolemund , ISBN-13: 978-1491910399 ISBN-10: 1491910399
+
+Hands-On Programming with R, Garrett Grolemund   ISBN-13: 978-1449359010,ISBN-10: 1449359019
+
+R Cookbook: Paul Teetor ISBN-13: 978-0596809157,ISBN-10: 0596809158
+
+Curran, J.M. (2010) Introduction to Data Analysis with R for Forensic Scientists, ISBN: 978-1420088267
+
+Murrell, P (2005) R Graphics, ISBN: 978-1584884866
+
+Murrell, P Introduction to Data Technologies, www.stat.auckland.ac.nz/~paul/ItDT
+
+```
