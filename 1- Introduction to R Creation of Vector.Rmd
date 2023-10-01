@@ -1,0 +1,110 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Introduction to help Command"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+#### Introduction to Help
+
+```text
+welcome to the Session on Help command in R, The first things we should learn before starting R is help command.
+
+
+The first code which we should check is ?help(), as soon as we execute the command ?help()
+
+we will get teh discription of help() in the rstudio interface in the bottom window
+The same information will be available in the website 
+```
+
+<a herf="">
+https://www.r-project.org/help.html
+</a>
+
+```text
+In this page we will give the complete detail of how to use help command in R.
+
+Similarly if we want to know more about some specific code say mean, we will use ?mean()
+```
+
+```{r}
+?mean()
+```
+
+```text
+we will help on the mean code in the interface help window, we will get the same information on the web page.
+```
+
+<a herf="">
+https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html
+</a>
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/help1.png")
+```
+
+
+```text
+We can get Help on specific keywords. For the same we can use the keyword in "" in help(). If we want help on code mean, then we will use help("mean"). By using this command we can search any specific code which is available in any of the package in the R environment
+```
+
+```{r}
+help("mean")
+```
+
+```text
+we will get the help details in the interface help window as well, if we use the help.search. Then R will search for the keyword mean in the whole r environment and will display all the places where that word is used with its link. 
+```
+
+```{r}
+help.search("mean")
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/search.png")
+```
+
+```text
+There are few codes for which example of there application is also given. For example mean, median, regression, etc
+```
+
+```{r}
+example("mean")
+```
+
+```text
+This example will help us to understand how to use mean() code and how the output will look like.
+Similarly if we want to check median we can use the code example("median")
+```
+```{r}
+example("median")
+```
+
+```text
+In the same line if we have to check how to apply simple linear regression in R, we can use help in the following way
+```
+
+```{r}
+help("lm")
+?lm()
+help.search("lm")
+example(lm)
+```
+
+#### References
+
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+
+```

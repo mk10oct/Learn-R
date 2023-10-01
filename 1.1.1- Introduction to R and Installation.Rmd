@@ -1,0 +1,276 @@
+---
+title: "Course:- Introduction to R programming"
+author: "Topic:- Introduction to R programming and Installation"
+output:
+  html_document:
+    css: style.css
+---
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/SIU.png")
+```
+
+<style type="text/css">
+
+body, td {
+   font-family: Calibri (Headings);
+   background-color:Light blue;
+   font-size: 14px;
+   margin: 4px;
+   colour: black;
+   paddin: 10px
+}
+
+h1 { /* Header 1 */
+   font-family:Calibri (Headings);
+  font-size: 14px;
+  color: black;
+  text-align: Justify;
+}
+
+h4 { /* Header 1 */
+   font-family:Calibri (Headings);
+  font-size: 18px;
+  color: black;
+  text-align: Justify;
+}
+
+
+
+</style>
+
+#### Introduction to R
+
+```text
+R is a programming language for statistical computing and graphics supported by the R Core Team and the R Foundation for Statistical Computing. R was created by statisticians Ross Ihaka and Robert Gentleman. Many Users have created packages to augment the functions of the R language. R is a language and environment for statistical computing and graphics. R is available as Free Software under the terms of the Free Software Foundation's GNU General Public License in source code form. R can be considered as a different implementation of S.
+R provides a wide variety of statistical and graphical techniques, and is highly extensible through packages. It compiles and runs on a wide variety of UNIX platforms and similar systems (including FreeBSD and Linux), Windows and Mac-OS.
+
+```
+
+#### The R environment
+
+```text
+R is an integrated suite of software facilities for data manipulation, calculation and graphical display. It includes
+.	an effective data handling and storage facility,
+.	a suite of operators for calculations on arrays, in particular matrices,
+.	a large, coherent, integrated collection of intermediate tools for data analysis,
+.	graphical facilities for data analysis and display either on-screen or on hardcopy, and
+.	a well-developed, simple and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities.
+The term "environment" is intended to characterize it as a fully planned and coherent system, rather than an incremental accretion of very specific and inflexible tools, as is frequently the case with other data analysis software.
+R, like S, is designed around a true computer language, and it allows users to add additional functionality by defining new functions. Much of the system is itself written in the R dialect of S, which makes it easy for users to follow the algorithmic choices made. For computationally-intensive tasks, C, C++ and Fortran code can be linked and called at run time. Advanced users can write C code to manipulate R objects directly.
+Many users think of R as a statistics system. We prefer to think of it as an environment within which statistical techniques are implemented. R can be extended (easily) via packages. There are about eight packages supplied with the R distribution and many more are available through the CRAN family of Internet sites covering a very wide range of modern statistics.
+
+```
+```{r, fig.align='right', echo=FALSE, out.width = "25%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/Rlogo.png")
+```
+
+
+##### History of R
+```text
+R was initially used by Robert Gentleman and Ross Ihaka, both professors at the University of Auckland, in the early 1990s.The R language was later developed by John Chambers, Rick Becker, Trevor Hastie, Allan Wilks and others at Bell Labs in the mid 1970s, and made it publicly available in the early 1980's. In 1995 Robert and Ross established R as an open source project. In 1977 R core group was formed. Hornik and Leisch, of the Vienna University of Economics and Business, build the Comprehensive R Archive Network (CRAN) in 1977. Since 1977 the r core group is managing R.In February 2000, came the first release of R version 1.0.0 public version.
+```
+
+#### The initial developer of R
+
+```text
+Robert and Ross, along with many others, kept working on and using R. They continue to create new tools for R. There are over 10,000 user-created libraries that were built to enhance R functionality. These packages have crowdsourced quality-validation and support from recognized leaders in every field. 
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/Robert and Ross.png")
+```
+
+##### Why R is used
+```text
+The basic reason why R is used now a dyas are as follows:
+R is a free software Programming environment for 
+  -statistical computing 
+  -Graphical display
+  -Data analysis and Data Manipulation
+  -R is available as Free Software. Open source Licence 
+
+It compiles and runs on a
+  -Linux
+  -Windows
+  -FreeBSD
+  -MacOS
+
+R can be easily extended via packages. 
+
+```
+
+#### Benefits to R
+
+```text
+
+There are many benifits of using R,few of them are 
+  -The out put of R are easy to store on the system and can be used when ever it is required
+  -The R programming can be used for Simple as well as complicated calculations
+  -R is an easy programming language and can do all type of programming
+  -Built in and contributed packages are available and users are provided tools to make packages.
+  -It is possible to contribute your own package
+```
+
+#### Integration of R
+
+```text
+Different organization uses different types of sofwares and plaform for there work. If an orgnaizaiton is working on Java,then it will be difficult to use or work on the other software of platform. In such a situation R can be used. Since R can be intergrated with many other platforms and softwares, such as Hadoop, Python,JAVA,MongoDB , and C++.
+
+There are different packages which are available to integrate R with them, the packages are: 
+  -Hadoop:- RHadoop,  RHIPE, ORCH, Rhive
+  -Python:- Rpy
+  -JAVA:- Rjava
+  -MongoDB :- Rmongo, Rmongodb
+  -C++:- Rcpp
+```
+
+```{r, fig.align='right', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/integration.png")
+```
+
+
+#### Graphic User Interface (GUI)
+```text
+R is a command line driven programming language, where the users have to enters commands at the prompt and then the command is executed.
+
+There have been a number of attempts to create a more graphical interface, ranging from code editors that interact with R, to full-blown GUIs that present the user with menus and dialog boxes. The most popular GUI used by R users are RStudio	which is a Professional software for R with a code editor, debugging & visualization tools, then comes Rattle	which is a R GUI useful for Analytic Tool, easy to learn and useful for Data Mining.  StatET provides an Eclipse-based integrated development environment for the R language and in order to do so also develops components for the integration of R and Java.RKWard	is Easy to use and easily extensible IDE/GUI. JGR	is a universal and unified graphical user interface for R. R Commander	is a GUI useful for Basic-Statistics. It has windows containing several menus, buttons, and information fields. Deducer is designed to be a free easy to use alternative to software such as SPSS, JMP, and Minitab. Deducer has a menu system to do basic data manipulation and analysis. 
+```
+
+#### Installing R 
+
+
+```text
+There are many ways to install R,the basic method is
+
+  -Download the file R-4.2.1-win32.exe, or the equivalent, from http://cran.us.r-project.org/bin/windows/base.
+  -Run R-4.2.1-win32.exe by double-clicking on it.
+  -The installation program will create the directory c:\Program Files\R\R-4.2.1 where "R-4.2.1" may vary, according to the version of R that you have installed.
+  -The actual R program will be c:\Program Files\R\R-4.2.1\bin\Rgui.exe. A windows "shortcut" should have been created on the desktop and/or in the start menu.
+
+One of the easy way is to search in google "download R" and downlaod the R exe file
+```
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/installr.png")
+```
+
+```text
+Similary for Mac and other Operating system we can download the exe files and install them.
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/installrmac.png")
+```
+
+#### Integrated development environment- IDE
+
+```text
+
+An integrated development environment (IDE) is a software suite that consolidates basic tools required to write and test software. Developers use numerous tools throughout software code creation, building and testing. Development tools often include text editors, code libraries, compilers and test platforms. 
+
+Without an IDE, a developer must select, deploy, integrate and manage all of these tools separately. An IDE brings many of those development-related tools together as a single framework, application or service. The integrated toolset is designed to simplify software development and can identify and minimize coding mistakes and typos.
+
+The most common and popular IDE which are used for R are 
+
+  -RStudio:- A powerful and productive user interface for R. Works great on Windows, Mac, and Linux
+  -Emacs + ESS:- Emacs Speaks Statistics is an add-on package for emacs text editors
+  -Sublime Text + R-Box:- Add-on package for Sublime Text
+  -TextMate + r.tmblundle:- Add-on package for TextMate
+  -StatET:- An Eclipse based IDE for R.
+  -Revolution R Enterprise:- Revolution R would be offered free to academic users and commercial software would focus on big data, large scale multiprocessor functionality
+  -R Commander:- A package that provides a basic graphical user interface
+  -IRkernel:- R kernel for Jupyter.
+  -Deducer:- A Menu driven data analysis GUI with a spreadsheet like data editor.
+  -Radiant:- A platform-independent browser-based interface for business analytics in R, based on the Shiny.
+  -Vim-R:- Vim plugin for R.
+  -Nvim-R:- Neovim plugin for R.
+  -JASP:- A complete package for both Bayesian and Frequentist methods, that is familiar to users of SPSS.
+  -Bio7:- A IDE contains tools for model creation, scientific image analysis and statistical analysis for ecological modelling.
+  -RTVS:- R Tools for Visual Studio.
+  -rtichoke:- A modern R console with syntax highlighting.
+  -RKWard:- An extensible IDE/GUI for R.
+```
+
+####Introduction to RStudio
+
+
+```{r, fig.align='right', echo=FALSE, out.width = "20%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/Rstudio1.png")
+```
+
+```text
+RStudio is an integrated development environment (IDE) for R. RStudio is available as open source  and commercial editions and runs on the desktop or in a browser connected to RStudio Server. To install Rstudio
+download the Rstudio desktop open source License.
+
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/rstudio2.png")
+```
+
+#### Working with Rstudio
+
+```text
+After Installing Rstudio we will start working on the Rstudio interface. The Rstudio inetrface had four parts. The four parts are code area/ Source, workspace area, console area, and plot/help/packages area. we can change the order of the windows under RStudio preferences. we can also change their shape by either clicking the minimize or maximize buttons on the top right of each panel, or by clicking and dragging the middle of the borders of the windows
+
+  -code Area/ Source
+  The source pane is where you create and edit R Scripts, It is a collection of all the codes created by you. We can also create R markdown, R Script, R HTML, R Sweave, text, tex, XML, etc files.
+  -Console
+  The console is the area, where R actually evaluates code. At the beginning of the console we see a prompt which tells us that R is ready for codeing. here we can type code directly after the prompt and get an output
+  -WOrkplace/ Environment/ History
+  In the Environment tab can see names of all the R objects like vectors, matrices,dataframes, data set,etc. which are created or defined in the current R session. SImilary we have a History tab in this panel, which shows the history of all the code we have previously evaluated in the Console. 
+  -The Files / Plots / Packages / Help panel shows you lots of helpful information,which are related to files and packages. In plot it gives the plot outputs and in help we can get help on r codes, packages etc using r codes on help.
+  
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/console.png")
+```
+
+#### Popular Packages in R
+
+```text
+Basically when install R, we are installing the Base R software. Base R will contain most of the functions which we use on a daily basis like mean(), help(), dim()and so on. these are the functions written by the initial authors of the R language. With the development of R and being a open source many people started contributing Packages which performs specific task. These packages can in downlaoded from crane, installed in R and can be used.
+```
+
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/package1.png")
+knitr::include_graphics(path="D:/R online Course SIU/R codes/package2.png")
+
+```
+
+#### comparing R and Python
+
+```text
+Both R and Python are widely used softwares used in academia and industries,still it can not be stated that which one is better. Below is a comparative graph of R and Python.
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/rpy1.jpg")
+```
+
+```{r, fig.align='centre', echo=FALSE, out.width = "100%"}
+knitr::include_graphics(path="D:/R online Course SIU/R codes/Prpy2.jpg")
+
+```
+
+
+#### References
+
+
+```text
+R Core Team. (2016). R: A Language and Environment for Statistical Computing. Vienna, Austria. Retrieved from https://www.R-project.org/
+
+Sarah Stowell. Instant R: An Introduction to R for Statistical Analysis. Jotunheim Publishing, 2012. ISBN 978-0-957-46490-2
+
+Peter Dalgaard. Introductory Statistics with R. Springer, 2nd edition, 2008. ISBN 978-0-387-79053-4.
+
+https://mran.microsoft.com/
+https://www.r-project.org/
+https://www.dunebook.com/
+https://www.techtarget.com/
+https://www.analyticsvidhya.com/
+
+```
